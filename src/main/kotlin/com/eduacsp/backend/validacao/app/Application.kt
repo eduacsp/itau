@@ -3,6 +3,7 @@ package com.eduacsp.backend.validacao.app
 import com.eduacsp.backend.validacao.routes.ValidacaoRoutes
 import com.eduacsp.backend.validacao.routes.ValidacaoRoutesImpl
 import com.eduacsp.backend.validacao.service.ValidacaoService
+import com.eduacsp.backend.validacao.service.ValidacaoServiceImpl
 import com.eduacsp.backend.validacao.web.ValidacaoController
 import io.javalin.Javalin
 import org.koin.core.component.KoinApiExtension
@@ -21,7 +22,7 @@ class Application : KoinComponent {
         val backendModule = module {
             single<ValidacaoRoutes> { ValidacaoRoutesImpl(get()) }
             single { ValidacaoController(get()) }
-            single { ValidacaoService() }
+            single { ValidacaoServiceImpl() }
         }
         startKoin {
             modules(backendModule)
